@@ -7,7 +7,26 @@
 const Queue = require('../lib/Queue')
 
 function processApplicants(queue) {
-  // your code here
+  let tempQueue = new Queue()
+  const yearsExperience = 2
+  const techStack = 'React'
+
+  while(!applicants.isEmpty()){
+    let currPerson = queue.dequeue()
+    if(currPerson.yearsExperience >= yearsExperience){
+      for(let i=0; i<currPerson.techStack.length;i++){
+        if(currPerson.techStack[i] === techStack){
+          tempQueue.enqueue(currPerson)
+        }
+      }
+    }
+  }
+
+  while(!tempQueue.isEmpty()){
+    applicants.enqueue(tempQueue.dequeue())
+  }
+
+  return applicants
 }
 
 const applicants = new Queue()
